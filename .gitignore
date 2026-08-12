@@ -1,0 +1,29 @@
+# Virtual Environment
+.venv/
+venv/
+ENV/
+
+# Python Caches & Bytecode
+**/__pycache__/
+*.py[cod]
+*$py.class
+
+# Large Model Weights & Models (CRITICAL)
+# Ignores downloaded model folders inside src/
+src/Qwen3-1.7B/
+*.safetensors
+*.bin
+*.onnx
+*.gguf
+
+# Secrets & Environment Variables
+.env
+.env.*
+
+# Generated Benchmark Results
+results/
+
+# Editor & System Files
+.vscode/
+.idea/
+.DS_Store

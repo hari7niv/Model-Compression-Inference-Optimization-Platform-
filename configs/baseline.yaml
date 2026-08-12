@@ -1,0 +1,24 @@
+model:
+  name: Qwen3-1.7B
+  path: ./src/Qwen3-1.7B
+  precision: fp16
+  quantization: "none"
+
+benchmark:
+  num_runs: 3
+  warmup_runs: 1
+  max_new_tokens: 100
+
+generation:
+  do_sample: false
+
+prompts:
+  - "Give me a beautiful poem about the beauty of nature."
+  - "Tell me a story about a brave knight."
+  - "What is the capital of France?"
+  - "How do I make a cup of tea?"
+  - "What is the square root of 144?"
+
+output:
+  directory: ./results
+  filename: baseline_fp16.json
