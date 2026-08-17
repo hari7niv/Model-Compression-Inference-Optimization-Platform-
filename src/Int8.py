@@ -1,9 +1,10 @@
 import argparse
-import torch
-from transformers import AutoTokenizer, AutoModelForCausalLM,BitsAndBytesConfig
-from ModelLoader import ModelLoader
-from ConfigLoader import ConfigLoader
 
+import torch
+from transformers import BitsAndBytesConfig
+
+from ConfigLoader import ConfigLoader
+from ModelLoader import ModelLoader
 
 parser = argparse.ArgumentParser()
 

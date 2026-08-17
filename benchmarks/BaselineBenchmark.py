@@ -1,22 +1,46 @@
 import argparse
 import json
+import math
 import os
 import time
 from statistics import mean
 
 import numpy as np
 import torch
+from transformers import BitsAndBytesConfig
 
 from src.ConfigLoader import ConfigLoader
 from src.ModelLoader import ModelLoader
 
-from transformers import BitsAndBytesConfig
+
+def compute_perplexity(model, tokenizer, texts, device):
+    """Perplexity on a fixed set of held-out texts — standard LLM quality proxy."""
+    total_loss = 0.0
+    total_tokens = 0
+
+    for text in texts:
+        inputs = tokenizer(text, return_tensors="pt").to(device)
+        with torch.no_grad():
+            outputs = model(**inputs, labels=inputs["input_ids"])
+        # loss is mean NLL per token; multiply back to get sum for correct aggregation
+        num_tokens = inputs["input_ids"].shape[1]
+        total_loss += outputs.loss.item() * num_tokens
+        total_tokens += num_tokens
+
+    return math.exp(total_loss / total_tokens)
 
 def get_quantization_config(quant_type):
     if quant_type in (None, "none"):
         return None
     elif quant_type == "int8":
         return BitsAndBytesConfig(load_in_8bit=True, llm_int8_threshold=6.0)
+    elif quant_type == "int4":
+        return BitsAndBytesConfig(
+            load_in_4bit=True,
+            bnb_4bit_compute_dtype=torch.float16,
+            bnb_4bit_use_double_quant=True,
+            bnb_4bit_quant_type="nf4"
+        )
     else:
         raise ValueError(f"Unsupported quantization type: {quant_type}")
 

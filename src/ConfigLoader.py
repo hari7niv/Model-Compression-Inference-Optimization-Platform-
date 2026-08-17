@@ -1,5 +1,6 @@
 import yaml
 
+
 class ConfigLoader:
     
     @staticmethod
