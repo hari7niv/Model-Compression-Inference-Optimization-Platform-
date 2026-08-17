@@ -23,3 +23,10 @@ prompts:
 output:
   directory: "results"
   filename: "int4_llm.json"
+
+eval_texts:
+  - "The Industrial Revolution began in Britain in the late 18th century and gradually spread to other parts of Europe and North America, fundamentally transforming manufacturing processes and society."
+  - "Photosynthesis is the process by which green plants and some other organisms convert light energy into chemical energy stored in glucose, using carbon dioxide and water as raw materials."
+  - "The stock market experienced significant volatility throughout the quarter, with technology shares leading both the gains in early trading and the subsequent losses following interest rate announcements."
+  - "Machine learning models require large amounts of labeled training data to learn patterns effectively, though recent advances in self-supervised learning have reduced this dependency considerably."
+  - "The novel's protagonist embarks on a journey across three continents, encountering various cultures and challenges that ultimately reshape her understanding of identity and belonging."

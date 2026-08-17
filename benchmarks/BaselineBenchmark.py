@@ -94,11 +94,10 @@ def run_single_inference(model, tokenizer, prompt, device, max_new_tokens=100):
         "tokens_per_sec": output_len / elapsed if elapsed > 0 else 0,
         "peak_memory_mb": peak_mem_mb,
     }
-
 def run_benchmark(config):
     model_path = config["model"]["path"]
-
     prompts = config["prompts"]
+    eval_texts = config.get("eval_texts", [])   # held-out set for perplexity
 
     num_runs = config["benchmark"]["num_runs"]
     warmup = config["benchmark"]["warmup_runs"]
@@ -106,6 +105,7 @@ def run_benchmark(config):
     quantization = config["model"].get("quantization", None)
     quantization_config = get_quantization_config(quantization)
     precision = config["model"].get("precision", "fp16")
+
     model, tokenizer, device = ModelLoader.load_model(model_path, bnb_config=quantization_config, precision=precision)
 
     # warmup — discard results
@@ -131,6 +131,9 @@ def run_benchmark(config):
 
     all_latencies = [r["latency_sec"] for pr in per_request_results for r in pr["runs"]]
 
+    # accuracy/quality measurement — separate from timing loop, run once
+    perplexity = compute_perplexity(model, tokenizer, eval_texts, device) if eval_texts else None
+
     summary = {
         "model_path": model_path,
         "device": str(device),
@@ -146,9 +149,11 @@ def run_benchmark(config):
             default=None,
         ),
         "model_size_mb": get_model_size_mb(model_path),
+        "perplexity": perplexity,
     }
 
     return {"summary": summary, "per_prompt": per_request_results}
+
 
 if __name__ == "__main__":
 
