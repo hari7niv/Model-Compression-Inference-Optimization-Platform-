@@ -20,8 +20,6 @@ src/Qwen3-1.7B/
 .env
 .env.*
 
-# Generated Benchmark Results
-results/
 
 # Editor & System Files
 .vscode/

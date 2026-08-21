@@ -1,0 +1,148 @@
+{
+  "summary": {
+    "model_path": "./src/Qwen3-1.7B",
+    "device": "cuda",
+    "num_prompts": 5,
+    "runs_per_prompt": 3,
+    "p50_latency_sec": 7.217721367000195,
+    "p95_latency_sec": 7.599773074200265,
+    "p99_latency_sec": 7.64765969564035,
+    "mean_ttft_sec": 0.08633437720000074,
+    "mean_throughput_tok_per_sec": 14.097186373692958,
+    "peak_memory_mb": 1312.68359375,
+    "model_size_mb": 3890.4700117111206,
+    "perplexity": 10.987021257520171
+  },
+  "per_prompt": [
+    {
+      "prompt": "Give me a beautiful poem about the beauty of nature.",
+      "runs": [
+        {
+          "latency_sec": 6.722847288000139,
+          "tokens_generated": 100,
+          "tokens_per_sec": 14.874649938649318,
+          "peak_memory_mb": 1312.68359375
+        },
+        {
+          "latency_sec": 7.364838207000048,
+          "tokens_generated": 100,
+          "tokens_per_sec": 13.578030798416336,
+          "peak_memory_mb": 1312.68359375
+        },
+        {
+          "latency_sec": 7.014957604999836,
+          "tokens_generated": 100,
+          "tokens_per_sec": 14.255253649533971,
+          "peak_memory_mb": 1312.68359375
+        }
+      ],
+      "ttft_sec": 0.11060361099998772,
+      "mean_latency_sec": 7.034214366666674,
+      "mean_tokens_per_sec": 14.235978128866542
+    },
+    {
+      "prompt": "Tell me a story about a brave knight.",
+      "runs": [
+        {
+          "latency_sec": 7.217721367000195,
+          "tokens_generated": 100,
+          "tokens_per_sec": 13.854788085503731,
+          "peak_memory_mb": 1312.40234375
+        },
+        {
+          "latency_sec": 7.21903940600032,
+          "tokens_generated": 100,
+          "tokens_per_sec": 13.852258503656596,
+          "peak_memory_mb": 1312.40234375
+        },
+        {
+          "latency_sec": 7.030988129999969,
+          "tokens_generated": 100,
+          "tokens_per_sec": 14.222751930602454,
+          "peak_memory_mb": 1312.40234375
+        }
+      ],
+      "ttft_sec": 0.08926540199990995,
+      "mean_latency_sec": 7.155916301000161,
+      "mean_tokens_per_sec": 13.976599506587593
+    },
+    {
+      "prompt": "What is the capital of France?",
+      "runs": [
+        {
+          "latency_sec": 7.325354249000156,
+          "tokens_generated": 100,
+          "tokens_per_sec": 13.651216937890625,
+          "peak_memory_mb": 1312.12109375
+        },
+        {
+          "latency_sec": 6.918102616999931,
+          "tokens_generated": 100,
+          "tokens_per_sec": 14.454830397321496,
+          "peak_memory_mb": 1312.12109375
+        },
+        {
+          "latency_sec": 7.659631351000371,
+          "tokens_generated": 100,
+          "tokens_per_sec": 13.055458600751027,
+          "peak_memory_mb": 1312.12109375
+        }
+      ],
+      "ttft_sec": 0.0824216000000888,
+      "mean_latency_sec": 7.30102940566682,
+      "mean_tokens_per_sec": 13.720501978654383
+    },
+    {
+      "prompt": "How do I make a cup of tea?",
+      "runs": [
+        {
+          "latency_sec": 6.513890788999561,
+          "tokens_generated": 100,
+          "tokens_per_sec": 15.3518078885935,
+          "peak_memory_mb": 1312.40234375
+        },
+        {
+          "latency_sec": 7.556707680000272,
+          "tokens_generated": 100,
+          "tokens_per_sec": 13.233276214278067,
+          "peak_memory_mb": 1312.40234375
+        },
+        {
+          "latency_sec": 6.564537925999957,
+          "tokens_generated": 100,
+          "tokens_per_sec": 15.233364652207,
+          "peak_memory_mb": 1312.40234375
+        }
+      ],
+      "ttft_sec": 0.07610895100015114,
+      "mean_latency_sec": 6.878378798333263,
+      "mean_tokens_per_sec": 14.60614958502619
+    },
+    {
+      "prompt": "What is the square root of 144?",
+      "runs": [
+        {
+          "latency_sec": 7.486414244000116,
+          "tokens_generated": 100,
+          "tokens_per_sec": 13.357529618420946,
+          "peak_memory_mb": 1312.68359375
+        },
+        {
+          "latency_sec": 6.544620987999679,
+          "tokens_generated": 100,
+          "tokens_per_sec": 15.279723636152742,
+          "peak_memory_mb": 1312.68359375
+        },
+        {
+          "latency_sec": 7.574119527000221,
+          "tokens_generated": 100,
+          "tokens_per_sec": 13.202854753416553,
+          "peak_memory_mb": 1312.68359375
+        }
+      ],
+      "ttft_sec": 0.07327232199986611,
+      "mean_latency_sec": 7.2017182530000055,
+      "mean_tokens_per_sec": 13.94670266933008
+    }
+  ]
+}

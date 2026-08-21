@@ -1,0 +1,12 @@
+=== Deployment Recommendations ===
+
+Latency-critical (e.g. real-time / interactive serving):
+  → fp16 (p50=4.95s, 19.9 tok/s)
+
+Memory-constrained (e.g. edge devices, limited VRAM):
+  → int4 (peak_memory=1313MB, perplexity=10.99)
+
+Accuracy-critical, memory flexible:
+  → fp16 (perplexity=9.89, lowest measured degradation)
+
+Note: int8 did not lead in any single category in this benchmark run, but remains on the Pareto frontier — meaning it still represents a valid tradeoff point on at least one axis relative to every other config tested. Worth re-evaluating if benchmarking conditions or hardware change.
