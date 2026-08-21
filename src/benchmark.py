@@ -151,8 +151,35 @@ def run_benchmark(config):
         "model_size_mb": get_model_size_mb(model_path),
         "perplexity": perplexity,
     }
-
-    return {"summary": summary, "per_prompt": per_request_results}
+    results = {"summary": summary, "per_prompt": per_request_results}
+    output_dir = config["output"]["directory"]
+    output_filename = config["output"]["filename"]
+    
+    os.makedirs(output_dir, exist_ok=True)
+    
+    output_path = os.path.join(
+            output_dir,
+            output_filename
+        )
+    
+    with open(output_path, "w", encoding="utf-8") as f:
+            json.dump(
+                results,
+                f,
+                indent=2
+            )
+    
+    print("\nBenchmark complete.")
+    print(f"Results saved to: {output_path}")
+    
+    print("\nSummary:")
+    print(
+        json.dumps(
+            results["summary"],
+            indent=2
+        )
+    )
+    return results
 
 
 if __name__ == "__main__":
