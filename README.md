@@ -13,7 +13,7 @@ Most "I quantized a model" projects report a single number and stop. This platfo
 The results here don't always match intuition. INT8 (bitsandbytes LLM.int8()) turned out to be the worst-performing configuration on latency in this benchmark, despite using more bits than INT4 — a real, measured finding driven by outlier-decomposition overhead in the INT8 kernel path, not a bug. That's the kind of result a single-number benchmark hides and a proper comparison surfaces.
 
 ---
-
+ 
 ## Architecture
 
 ```mermaid
